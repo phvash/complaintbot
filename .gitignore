@@ -1,0 +1,6 @@
+venv/
+.env
+bak/
+*__pycache__/
+*.json
+.vscode/
