@@ -20,7 +20,7 @@ class TweetHandler:
 
         # analyse entity sentiments
         try:
-            tweet_content = context + ' ' + tweet.text
+            tweet_content = context + ' ' + tweet.text if context else tweet.text
             entities = analyze_entity_sentiment(tweet_content)
             print([e.name.upper() for e in entities])
             neg_entities, neu_entities, pos_entities = group_entities_by_sentiment(entities)
@@ -101,6 +101,7 @@ class TweetHandler:
 
     @staticmethod
     def get_location(tweet):
+        locale = tweet.user.location
         # default for now
         return "United States of America"
         # return "Nigeria"
